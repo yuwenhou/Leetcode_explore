@@ -29,9 +29,9 @@ import java.util.List;
  */
 public class spiralOrder {
     public static void main(String[] args) {
-//        int[][] matrix = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] matrix = {{1,2,3},{4,5,6},{7,8,9}};
 //        int[][] matrix = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-        int[][] matrix = {{1,2},{3,4}};
+//        int[][] matrix = {{1,2},{3,4}};
 
 
         List<Integer> s = spiral(matrix);
@@ -40,9 +40,12 @@ public class spiralOrder {
         }
     }
 
+    /**
+     * 思路:设置上下左右临界值,然后遍历缩减临界值
+     * @param matrix
+     * @return
+     */
     private static List<Integer> spiral(int[][] matrix) {
-
-
 
         List<Integer> v = new ArrayList<>();
         if (matrix.length==0) return v;
@@ -66,38 +69,39 @@ public class spiralOrder {
             }
             i++;
             r--;
-//            System.out.println("item:"+item);
-//            System.out.println("i:"+i);
-//            System.out.println("j:"+j);
-//            System.out.println("d:"+d);
+
 
             if (item==count) return v;
 
-            for (int ii=i;ii<d;++ii){
+            for (int ii=i;ii<d;ii++){
                 v.add(matrix[ii][j]);
                 item++;
                 i = ii;
             }
+            System.out.println("-----------第二次循环结束-----");
+            System.out.println("item:"+item);
+            System.out.println("i:"+i);
+            System.out.println("j:"+j);
+            System.out.println("d:"+d);
             j--;
             d--;
-//            System.out.println("item:"+item);
-//            System.out.println("i:"+i);
-//            System.out.println("j:"+j);
-//            System.out.println("d:"+d);
+
             if (item==count) return v;
 
-            for (int jj=j;jj>l;--jj){
+            for (int jj=j;jj>=l;jj--){
                 v.add(matrix[i][jj]);
                 item++;
                 j = jj;
             }
-            j--;
-            l++;
+            System.out.println("-----------第三次循环结束-----");
             System.out.println("item:"+item);
             System.out.println("i:"+i);
             System.out.println("j:"+j);
             System.out.println("d:"+d);
             System.out.println("count:"+count);
+            i--;
+            l++;
+
 
             if (item==count) return v;
 
@@ -106,14 +110,16 @@ public class spiralOrder {
                 item++;
                 i = ii;
             }
+            System.out.println("-----------第四次循环结束-----");
+            System.out.println("item:"+item);
+            System.out.println("i:"+i);
+            System.out.println("j:"+j);
+            System.out.println("d:"+d);
+            System.out.println("count:"+count);
             j++;
             u++;
-//            System.out.println("item:"+item);
 
             if (item==count) return v;
-
-//            System.out.println("i:"+i);
-//            System.out.println("r:"+r);
 
         }while(item < count);
         return v;
