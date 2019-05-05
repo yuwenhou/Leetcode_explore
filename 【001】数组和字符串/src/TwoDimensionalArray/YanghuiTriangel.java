@@ -66,6 +66,7 @@ public class YanghuiTriangel {
             v[1][1] = 1;
         }else{
         int count = 2;
+
         v[0]= new int[1];
         v[0][0] = 1;
         v[1]= new int[2];
