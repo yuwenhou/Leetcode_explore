@@ -46,5 +46,8 @@ public class rotate {
         System.arraycopy(s1, 0, res, s2.length, s1.length);
         nums = res;
         System.out.println(Arrays.toString(nums));
+
+
+
     }
 }
