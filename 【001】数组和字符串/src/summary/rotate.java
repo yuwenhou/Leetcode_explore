@@ -36,6 +36,9 @@ public class rotate {
         solution1(nums,k);
     }
 
+
+
+
     private static void solution1(int[] nums, int k) {
         while (nums.length<k){k = k-nums.length;}
         int len = nums.length;
