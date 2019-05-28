@@ -32,7 +32,8 @@ public class reverseWords {
 
     public static void main(String[] args) {
         String s =  "the   sky is blue";
-        System.out.println(reverseWords2(s));
+        System.out.println("翻转字符："+reverseWords2(s));
+        System.out.println("反转字符："+reverseWords3(s));
     }
 
 
@@ -66,6 +67,31 @@ public class reverseWords {
             i = j-1;
         }
         if (builder.length()>0) builder.deleteCharAt(builder.length()-1);
+        return builder.toString();
+    }
+
+
+    public static String reverseWords3(String s) {
+
+        StringBuilder builder = new StringBuilder(s.length());
+        int i = 0;
+        s =s + " ";
+        char[] chars = s.toCharArray();
+        while (i<s.length()){
+            while (i <s.length() && s.charAt(i) == ' ') i++;
+            int j = s.indexOf(' ', i);
+            if (j == -1) break;
+            String substring = s.substring(i,j+1);
+            int ii = substring.length()-1;
+            char[] chars1 = substring.toCharArray();
+            while (ii>=0){
+                builder.append(chars1[ii]);
+                ii--;
+            }
+//            builder.append(" ");
+            i = j+1;
+        }
+        if (builder.length()>0) builder.deleteCharAt(0);
         return builder.toString();
     }
 
